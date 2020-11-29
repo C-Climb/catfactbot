@@ -11,6 +11,9 @@ client.on("ready", () => {
 
 
 client.on("message", msg => {
+    if(msg.content === ">commands"){
+        msg.reply("``` >catfact - Displays a cat fact with a fancy shmancy image \n >dogfact - Displays a dog fact with a fancy shmancy image ```")
+    }
     if (msg.content === '>catfact') {
         fetch("https://api.thecatapi.com/v1/images/search")
             .then(response => response.json())
