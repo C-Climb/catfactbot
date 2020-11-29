@@ -6,6 +6,9 @@ const fetch = require("node-fetch")
 
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}!`);
+    client.user.setPresence({status: "online", activity: {
+        name: ">commands | Dogs suck.",
+    }})
 })
 
 
@@ -36,7 +39,7 @@ client.on("message", msg => {
         fetch("https://dog-api.kinduff.com/api/facts")
             .then(response => response.json())
             .then(data => msg.reply(data.facts[0]))
-            .catch(msg.reply("Somethgin went wrong when fetching dog facts."))
+            .catch(error => msg.reply("Somethgin went wrong when fetching dog facts."))
     }
     if(msg.content === '>climbfact'){
         msg.reply("He doesnt exist stop asking.")
