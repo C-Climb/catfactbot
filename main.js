@@ -24,9 +24,9 @@ client.on("message", msg => {
             .catch(error => {
                 msg.reply("Something went wrong when fetching cat fact image.")
             })
-        fetch("https://cat-fact.herokuapp.com/facts/random")
+        fetch("https://catfact.ninja/fact")
             .then(response => response.json())
-            .then(data => msg.reply(data.text))
+            .then(data => msg.reply(data.fact))
             .catch(error => {
                 msg.reply("Something went wrong when fetching cat facts.")
             })
